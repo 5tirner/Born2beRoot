@@ -3,43 +3,53 @@
 
 - vm work through virtualisation tech, that use sorfware to simulate hardware
 that allow vm to run one  a host machine.
+
 - apt is a low package manager (can be used in other high level package manager)
 designed to handle software instalation and removal.
+
 Aptitude is a high level package manager, that gives user a user interface to acces 
 fonctionalities.
+
 - apparmor linux kernel security module that allows system admin to restrict program capabilities
 linux kernel is the main compnent (NOYEAU) of linuxOS,and its the main interface 
 between hardware and its processes.
+
 - LVM : logic volume management is form of storage virtualisation to facilitate
 managing disk storage than the traditional partitions.
+
 - TCP stands for Transmission Control Protocol a communications standard that enables application programs 
 and computing devices to exchange messages over a network.
+
 - cron : a tool makes u able to run a scpript or command in anytime u want.
+- 
 =================================================================================================================================================================
 2) Sudo
 
--infos about sudo :
+- infos about sudo :
+
 sudo : super user do, sudo is a program for Unix-like computer operating systems that enables users
 to run programs with the security privileges of another user.
 If you prefix “sudo” with any Linux command, it will run that command with elevated privileges.
--install sudo
-enter as root
+
+- install sudo :
+
+- enter as root
 ```
 	#apt install sudo
 	
 ```	
 	
-add your user to sudo
+- add your user to sudo
 ```
 	#usermod -aG sudo ur_username
 	
 ```	
-goto : visudo and add this line
+- goto : visudo and add this line
 ```
 	#ur_username	ALL=(ALL:ALL) ALL
 
 ```
--sudo rules
+- sudo rules
 ```
 	$sudo nano etc/sudoers
 	
@@ -57,69 +67,71 @@ Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 =================================================================================================================================================================
 3) User and Password Policy :
 
--check zasabri user in group user42 and sudo
+- check zasabri user in group user42 and sudo
 ```
 	$getent group user42
 	$getent group sudo
 	
 ```
--create a user
+- create a user
 ```
 	$sudo adduser u-n
 	
 ```
--create evaluating
+- create evaluating
 ```
 	$sudo addgroup evaluating
 	
 ```
--add te new user to evaluating
+- add te new user to evaluating
 ```
 	$sudo usermod -aG evaluating u-n
 	
 ```
--check evaluating
+- check evaluating
 ```
 	$sudo getent group evaluating
 	
 ```
--add policy rules
+- add policy rules
 ```
 	goto : etc/pam.d/commun-password
 	
 ```
--add lcredit for lowercase
+- add lcredit for lowercase
 ```
 	lcredit=-1
 ```
--ucredir for uppercase 
+- ucredir for uppercase 
 ```
 	ucredir=-1
 ```
-dcredit for digit
+- dcredit for digit
 ```
 	dcredit=-1
 ```
--provided thart 7 chars different from the last password
+- provided thart 7 chars different from the last password
 ```
 	difok=7
 ```
--reject the name of the user
+- reject the name of the user
 ```
 	reject_username
 ```
--the same conditions apply for root
+- the same conditions apply for root
 ```
 	enforce_for_root
 ```
--password validity period and warning message age:
+
+- password validity period and warning message age:
+
 goto : /etc/login.defs
 ```
 	PASS_MAX_DAYS 30
 	PASS_WARN_AGE 7
 	PASS_MIN_DAYS 2
 ```
-after you set these values enter the following command
+- after you set these values enter the following command
 ```
 	$sudo chage -i your_username
 	
@@ -229,8 +241,9 @@ HOSTNAME : is what a device is called on a network.
 =================================================================================================================================================================
 7) SCRIPT
 
--here with explanation : [Born2beRoot_Monitoring](https://github.com/5tirner/Born2beRoot_Monitoring/blob/master/monitoring.sh).
--when u'r done siding the script do this
+- here with explanation : [Born2beRoot_Monitoring](https://github.com/5tirner/Born2beRoot_Monitoring/blob/master/monitoring.sh).
+
+- when u'r done siding the script do this
 ```
 	$sudo visudo
 	
