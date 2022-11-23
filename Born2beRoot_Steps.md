@@ -24,108 +24,218 @@ to run programs with the security privileges of another user.
 If you prefix “sudo” with any Linux command, it will run that command with elevated privileges.
 -install sudo
 enter as root
+```
 	#apt install sudo
+	
+```	
+	
 add your user to sudo
-	#usermod -aG sudo zasabri
+```
+	#usermod -aG sudo ur_username
+	
+```	
 goto : visudo and add this line
-	zasabri 	ALL=(ALL:ALL) ALL
+```
+	#ur_username	ALL=(ALL:ALL) ALL
+
+```
 -sudo rules
-	sudo nano etc/sudoers
-->Defaults requirtty : when requiretty is added, sudo must be runed from logged-in terminal.
-->Defaults badpass_message="Password is wrong, please try again!" : For wrong password warning message.
-->Defaults logfile="/var/log/sudo/name_of_file" : each action log file has to be saved in the /var/log/sudo/nof.
-->Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin" : the paths that can be used by sudo must be restricted.
+```
+	$sudo nano etc/sudoers
+	
+```
+```
+Defaults requirtty : when requiretty is added, sudo must be runed from logged-in terminal.
+
+Defaults badpass_message="Password is wrong, please try again!" : For wrong password warning message.
+
+Defaults logfile="/var/log/sudo/name_of_file" : each action log file has to be saved in the /var/log/sudo/nof.
+
+Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin" : the paths that can be used by sudo must be restricted.
+
+```
 =================================================================================================================================================================
 3) User and Password Policy :
 
 -check zasabri user in group user42 and sudo
+```
 	$getent group user42
 	$getent group sudo
+	
+```
 -create a user
+```
 	$sudo adduser u-n
+	
+```
 -create evaluating
+```
 	$sudo addgroup evaluating
+	
+```
 -add te new user to evaluating
+```
 	$sudo usermod -aG evaluating u-n
+	
+```
 -check evaluating
+```
 	$sudo getent group evaluating
+	
+```
 -add policy rules
+```
 	goto : etc/pam.d/commun-password
+	
+```
 -add lcredit for lowercase
+```
 	lcredit=-1
+```
 -ucredir for uppercase 
+```
 	ucredir=-1
+```
 dcredit for digit
+```
 	dcredit=-1
+```
 -provided thart 7 chars different from the last password
+```
 	difok=7
+```
 -reject the name of the user
+```
 	reject_username
+```
 -the same conditions apply for root
+```
 	enforce_for_root
+```
 -password validity period and warning message age:
 goto : /etc/login.defs
+```
 	PASS_MAX_DAYS 30
 	PASS_WARN_AGE 7
 	PASS_MIN_DAYS 2
+```
 after you set these values enter the following command
+```
 	$sudo chage -i your_username
+	
+```
 and adjust the sitting there as well
 =================================================================================================================================================================
 4) Ssh and Ufw :
 
 SSH : Secure Shell is a network communication protocol that enables two computers 
 to communicate and share data.
--install ssh 
+-install ssh
+```
 	$sudo apt install  openssh-server
+	
+```
 -check if ssh installed
+```
 	$sudo systemctl status ssh
+	
+```
 -only used 4242
 goto : /etc/ssh/sshd_config
+```
 	repleace (#Port22) with Port4242
+
+```
 UFW : Uncomplicated Firewall ,firwall is a shield for security of the computer,it filter the infos that enter and leave the computer
 and ufw is a uncomplicated firewall designed to be easy to use for us used with ssh.
 -install ufw
+```
 	$sudo apt install ufw
+	
+```
 -enable it
+```
 	$sudo ufw enable
+	
+```
 - check ufw 
+```
 	sudo ufw status
+
+```
 -use ufw with ssh
+```
 	$sudo ufw allow ssh
+	
+```
 - add port 4242
+```
 	$sudo ufw allow 4242
+	
+```
 -check it
+```
 	$sudo ufw status numbered
+	
+```
 -if you want to delete delete a role use the following command
+```
 	$sudo ufw delete 'nbr of the role'
+
+```
 -to deny like port 4242
+```
 	$sudo ufw deny 4242
+	
+```
 =================================================================================================================================================================
 5) Check Check :
 
 -to check password
+```
 	$chage -l zasabri
+	
+```
 -to check ufw 
+```
 	$sudo  ufw status
+	
+```
 -to check ssh
+```
 	$sudo service ssh status
+
+```
 -to check debian
+```
 	$uname -a or $cat /etc/os-release
+
+```
 =================================================================================================================================================================
 6)Hostname
 
 HOSTNAME : is what a device is called on a network.
 -to check current hostname
+```
 	$hostnamectl
+	
+```
 -to change the hostname
+```
 	hostnamectl set-hostname hostname-name
+	
+```
 -and goto etc/hosts and change it there
 =================================================================================================================================================================
 7) SCRIPT
 
--here with explanation : https://github.com/5tirner/Born2beRoot_Monitoring/blob/master/monitoring.sh .
+-here with explanation : [Born2beRoot_Monitoring](https://github.com/5tirner/Born2beRoot_Monitoring/blob/master/monitoring.sh).
 -when u'r done siding the script do this
+```
 	$sudo visudo
+	
+```
 and add this line 
+```
 	ur_name ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh
+```
