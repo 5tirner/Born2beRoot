@@ -7,14 +7,14 @@ that allow vm to run one  a host machine.
 designed to handle software instalation and removal.
 Aptitude is a high level package manager, that gives user a user interface to acces 
 fonctionalities.
--apparmor linux kernel security module that allows system admin to restrict program capabilities
+- apparmor linux kernel security module that allows system admin to restrict program capabilities
 linux kernel is the main compnent (NOYEAU) of linuxOS,and its the main interface 
 between hardware and its processes.
--LVM : logic volume management is form of storage virtualisation to facilitate
+- LVM : logic volume management is form of storage virtualisation to facilitate
 managing disk storage than the traditional partitions.
--TCP stands for Transmission Control Protocol a communications standard that enables application programs 
+- TCP stands for Transmission Control Protocol a communications standard that enables application programs 
 and computing devices to exchange messages over a network.
--cron : a tool makes u able to run a scpript or command in anytime u want.
+- cron : a tool makes u able to run a scpript or command in anytime u want.
 =================================================================================================================================================================
 2) Sudo
 
