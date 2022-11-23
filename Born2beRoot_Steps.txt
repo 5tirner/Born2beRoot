@@ -124,7 +124,7 @@ HOSTNAME : is what a device is called on a network.
 =================================================================================================================================================================
 7) SCRIPT
 
--here with explanation ofc haha -> https://github.com/5tirner/Born2beRoot_Monitoring .
+-here with explanation : https://github.com/5tirner/Born2beRoot_Monitoring/blob/master/monitoring.sh .
 -when u'r done siding the script do this
 	$sudo visudo
 and add this line 
