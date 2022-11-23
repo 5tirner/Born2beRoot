@@ -1,26 +1,25 @@
 1) Knowledge : 
 
-- vm work through virtualisation tech, that use sorfware to simulate hardware
-that allow vm to run one  a host machine.
+- Virtual Machine work through virtualisation tech, that use sorfware to simulate hardware
+that allow virtual machine to run one a host machine.
 
-- apt is a low package manager (can be used in other high level package manager)
+- Apt is a low package manager (can be used in other high level package manager)
 designed to handle software instalation and removal.
 
-Aptitude is a high level package manager, that gives user a user interface to acces 
+- Aptitude is a high level package manager, that gives user a user interface to acces 
 fonctionalities.
 
-- apparmor linux kernel security module that allows system admin to restrict program capabilities
+- Apparmor linux kernel security module that allows system admin to restrict program capabilities
 linux kernel is the main compnent (NOYEAU) of linuxOS,and its the main interface 
 between hardware and its processes.
 
 - LVM : logic volume management is form of storage virtualisation to facilitate
 managing disk storage than the traditional partitions.
 
-- TCP stands for Transmission Control Protocol a communications standard that enables application programs 
+- TCP : Transmission Control Protocol a communications standard that enables application programs 
 and computing devices to exchange messages over a network.
 
 - cron : a tool makes u able to run a scpript or command in anytime u want.
-- 
 
 
 
@@ -34,26 +33,22 @@ If you prefix “sudo” with any Linux command, it will run that command with e
 
 - install sudo :
 
-- enter as root
+"enter as root"
 ```
 	#apt install sudo
-	
 ```	
 	
 - add your user to sudo
 ```
 	#usermod -aG sudo ur_username
-	
 ```	
 - goto : visudo and add this line
 ```
 	#ur_username	ALL=(ALL:ALL) ALL
-
 ```
 - sudo rules
 ```
 	$sudo nano etc/sudoers
-	
 ```
 ```
 Defaults requirtty : when requiretty is added, sudo must be runed from logged-in terminal.
@@ -63,39 +58,42 @@ Defaults badpass_message="Password is wrong, please try again!" : For wrong pass
 Defaults logfile="/var/log/sudo/name_of_file" : each action log file has to be saved in the /var/log/sudo/nof.
 
 Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin" : the paths that can be used by sudo must be restricted.
-
 ```
 
 
 
 3) User and Password Policy :
 
+- add group user42
+```
+	$sudo adduser user42
+```
 - check zasabri user in group user42 and sudo
 ```
 	$getent group user42
 	$getent group sudo
-	
 ```
+
+- u will do this on defense
+-------------------------------------------------
 - create a user
 ```
 	$sudo adduser u-n
-	
 ```
 - create evaluating
 ```
 	$sudo addgroup evaluating
-	
 ```
 - add te new user to evaluating
 ```
 	$sudo usermod -aG evaluating u-n
-	
 ```
 - check evaluating
 ```
-	$sudo getent group evaluating
-	
+	$sudo getent group evaluating	
 ```
+------------------------------------------------------------
+
 - add policy rules
 ```
 	goto : etc/pam.d/commun-password
@@ -137,7 +135,6 @@ goto : /etc/login.defs
 - after you set these values enter the following command
 ```
 	$sudo chage -i your_username
-	
 ```
 and adjust the sitting there as well
 
@@ -147,106 +144,91 @@ and adjust the sitting there as well
 
 SSH : Secure Shell is a network communication protocol that enables two computers 
 to communicate and share data.
+
 -install ssh
 ```
 	$sudo apt install  openssh-server
-	
 ```
 -check if ssh installed
 ```
 	$sudo systemctl status ssh
-	
 ```
 -only used 4242
 goto : /etc/ssh/sshd_config
 ```
 	repleace (#Port22) with Port4242
-
 ```
 UFW : Uncomplicated Firewall ,firwall is a shield for security of the computer,it filter the infos that enter and leave the computer
 and ufw is a uncomplicated firewall designed to be easy to use for us used with ssh.
--install ufw
+
+- install ufw
 ```
 	$sudo apt install ufw
-	
 ```
--enable it
+- enable it
 ```
 	$sudo ufw enable
-	
 ```
 - check ufw 
 ```
 	sudo ufw status
-
 ```
 -use ufw with ssh
 ```
 	$sudo ufw allow ssh
-	
 ```
 - add port 4242
 ```
 	$sudo ufw allow 4242
-	
 ```
 -check it
 ```
 	$sudo ufw status numbered
-	
 ```
--if you want to delete delete a role use the following command
+- if you want to delete a role use the following command
 ```
 	$sudo ufw delete 'nbr of the role'
-
 ```
 -to deny like port 4242
 ```
 	$sudo ufw deny 4242
-	
 ```
-
 
 
 5) Check Check :
 
--to check password
+- to check password
 ```
 	$chage -l zasabri
-	
 ```
--to check ufw 
+- to check ufw 
 ```
 	$sudo  ufw status
-	
 ```
--to check ssh
+- to check ssh
 ```
 	$sudo service ssh status
-
 ```
--to check debian
+- to check debian
 ```
 	$uname -a or $cat /etc/os-release
-
 ```
 
 
 
-6)Hostname
+6) Hostname
 
 HOSTNAME : is what a device is called on a network.
--to check current hostname
+
+- to check current hostname
 ```
 	$hostnamectl
-	
 ```
--to change the hostname
+- to change the hostname
 ```
 	hostnamectl set-hostname hostname-name
-	
 ```
--and goto etc/hosts and change it there
+- and goto etc/hosts and change it there
 
 
 
@@ -258,9 +240,8 @@ HOSTNAME : is what a device is called on a network.
 - when u'r done siding the script do this
 ```
 	$sudo visudo
-	
 ```
 and add this line 
 ```
-	ur_name ALL=(ALL) NOPASSWD: /usr/local/bin/monitoring.sh
+	ur_name ALL=(ALL) NOPASSWD: monitoring.sh
 ```
