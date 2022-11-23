@@ -1,4 +1,4 @@
-1) Knowledge : 
+Ki1) Knowledge : 
 
 - Virtual Machine work through virtualisation tech, that use sorfware to simulate hardware
 that allow virtual machine to run one a host machine.
@@ -19,7 +19,7 @@ managing disk storage than the traditional partitions.
 - TCP : Transmission Control Protocol a communications standard that enables application programs 
 and computing devices to exchange messages over a network.
 
-- cron : a tool makes u able to run a scpript or command in anytime u want.
+- cron : a tool makes u able to run a script or command in anytime u want.
 
 
 
