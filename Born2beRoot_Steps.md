@@ -1,4 +1,3 @@
-=================================================================================================================================================================
 1) Knowledge : 
 
 - vm work through virtualisation tech, that use sorfware to simulate hardware
@@ -22,7 +21,9 @@ and computing devices to exchange messages over a network.
 
 - cron : a tool makes u able to run a scpript or command in anytime u want.
 - 
-=================================================================================================================================================================
+
+
+
 2) Sudo
 
 - infos about sudo :
@@ -64,7 +65,9 @@ Defaults logfile="/var/log/sudo/name_of_file" : each action log file has to be s
 Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin" : the paths that can be used by sudo must be restricted.
 
 ```
-=================================================================================================================================================================
+
+
+
 3) User and Password Policy :
 
 - check zasabri user in group user42 and sudo
@@ -137,7 +140,9 @@ goto : /etc/login.defs
 	
 ```
 and adjust the sitting there as well
-=================================================================================================================================================================
+
+
+
 4) Ssh and Ufw :
 
 SSH : Secure Shell is a network communication protocol that enables two computers 
@@ -200,7 +205,9 @@ and ufw is a uncomplicated firewall designed to be easy to use for us used with 
 	$sudo ufw deny 4242
 	
 ```
-=================================================================================================================================================================
+
+
+
 5) Check Check :
 
 -to check password
@@ -223,7 +230,9 @@ and ufw is a uncomplicated firewall designed to be easy to use for us used with 
 	$uname -a or $cat /etc/os-release
 
 ```
-=================================================================================================================================================================
+
+
+
 6)Hostname
 
 HOSTNAME : is what a device is called on a network.
@@ -238,7 +247,10 @@ HOSTNAME : is what a device is called on a network.
 	
 ```
 -and goto etc/hosts and change it there
-=================================================================================================================================================================
+
+
+
+
 7) SCRIPT
 
 - here with explanation : [Born2beRoot_Monitoring](https://github.com/5tirner/Born2beRoot_Monitoring/blob/master/monitoring.sh).
